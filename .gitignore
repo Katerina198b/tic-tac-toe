@@ -1,0 +1,11 @@
+#If there is a separator at the end of the pattern then the pattern will only match directories,
+#otherwise the pattern can match both files and directories.
+
+#"abc/**" matches all files inside directory "abc",
+#"a/**/b" matches "a/b", "a/x/b", "a/x/y/b" and so on
+
+#To stop tracking a file that is currently tracked, use git rm --cached
+
+/node_modules
+.idea
+
