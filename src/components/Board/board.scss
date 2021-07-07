@@ -1,6 +1,8 @@
 .board {
   flex-grow: 1;
   border: 1px solid black;
+  min-width: 300px;
+  min-width: calc(min(100%, 300px));
 
   &__row {
     display: flex;

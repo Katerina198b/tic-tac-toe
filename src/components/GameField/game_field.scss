@@ -5,11 +5,16 @@
   margin-right:auto;
   padding-right:15px;
   padding-left:15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+  box-sizing: border-box;
 
   &__user {
     width: 20%;
     max-width: 300px;
     min-width: 120px;
+    max-width: calc(min(300px, 50%));
   }
 }
 
@@ -37,9 +42,12 @@
     padding-left:15px
   }
 }
-@media (min-width: 476px){
+@media (max-width: 476px){
   .game-field{
-    width:100%
+    width:100%;
+    &__user {
+      order: 1;
+    }
   }
 }
 @media (min-width: 768px){
