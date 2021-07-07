@@ -1,0 +1,33 @@
+.user {
+  margin: 20px;
+  &_active &__avatar {
+    background-color: var(--green);
+  }
+
+  &__id {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.4rem;
+  }
+
+  &__avatar {
+    width: 80%;
+    border-radius: 100%;
+    padding-top: 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60%;
+    border: 2px solid var(--color);
+    position: relative;
+    transition: background-color .3s linear;
+  }
+
+  &__avatar_type_o {
+    background-image: url('/src/svg/o.svg');
+
+  }
+
+  &__avatar_type_x {
+    background-image: url('/src/svg/x.svg');
+  }
+}

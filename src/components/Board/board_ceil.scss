@@ -1,0 +1,23 @@
+.board-ceil {
+  border: 1px solid black;
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+
+  &::after {
+    content: '';
+    padding-top: 100%;
+  }
+
+  &_type_o {
+    pointer-events: none;
+    background-image: url('/src/svg/o.svg');
+
+  }
+
+  &_type_x {
+    pointer-events: none;
+    background-image: url('/src/svg/x.svg');
+  }
+}
+

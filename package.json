@@ -1,0 +1,110 @@
+{
+  "name": "react-template",
+  "contributors": [
+    {
+      "name": "Zakharenkova Ekaterina",
+      "email": "katerina198b@gmail.com"
+    }
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build1": "node --max-old-space-size=4096 ./node_modules/webpack/bin/webpack --config ./config/webpack.js",
+    "analyze": "./node_modules/.bin/webpack --mode development --display-modules",
+    "test": "jest",
+    "start": "export NODE_ENV=development && webpack-dev-server --open --config ./config/webpack.js"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|scss|sass|styl)$": "identity-obj-proxy"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Katerina198b/Print-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Katerina198b/react-template/issues"
+  },
+  "browser": {
+    "child_process": false
+  },
+  "homepage": "https://github.com/Katerina198b/react-template#readme",
+  "devDependencies": {
+    "@babel/core": "7.7.5",
+    "@babel/node": "7.7.4",
+    "@babel/plugin-proposal-async-generator-functions": "7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.11.0",
+    "@babel/plugin-syntax-dynamic-import": "7.8.3",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "7.7.6",
+    "@babel/preset-typescript": "7.8.3",
+    "@babel/register": "7.7.4",
+    "@babel/cli": "7.7.5",
+    "@babel/plugin-proposal-class-properties": "7.7.4",
+    "@babel/plugin-proposal-export-default-from": "7.8.3",
+    "@babel/polyfill": "7.8.3",
+    "@babel/preset-react": "7.8.3",
+    "@babel/preset-stage-0": "7.0.0",
+    "@storybook/addon-actions": "5.2.8",
+    "@storybook/addon-docs": "5.2.8",
+    "@storybook/react": "5.3.17",
+    "@types/react": "16.9.19",
+    "@types/react-dom": "16.9.5",
+    "@types/react-router": "5.1.4",
+    "@types/react-router-dom": "5.1.3",
+    "@types/react-router-redux": "5.0.18",
+    "@typescript-eslint/eslint-plugin": "1.9.0",
+    "@typescript-eslint/parser": "1.9.0",
+    "@types/history": "4.7.5",
+    "@types/react-redux": "7.1.7",
+    "@types/reactstrap": "8.4.2",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "7.1.2",
+    "babel-plugin-react-anonymous-display-name": "0.0.1",
+    "babel-plugin-transform-async-functions": "6.22.0",
+    "clean-webpack-plugin": "3.0.0",
+    "copy-webpack-plugin": "6.1.1",
+    "css-loader": "0.28.11",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-react": "7.19.0",
+    "node-sass": "4.12.0",
+    "node-sass-json-importer": "4.1.0",
+    "optimize-css-assets-webpack-plugin": "5.0.1",
+    "postcss-import": "12.0.1",
+    "postcss-loader": "3.0.0",
+    "sass-loader": "6.0.7",
+    "style-loader": "0.18.2",
+    "stylus": "0.54.7",
+    "stylus-loader": "3.0.2",
+    "svg-inline-loader": "0.8.0",
+    "typescript": "3.8.3",
+    "uglifyjs-webpack-plugin": "1.3.0",
+    "url-loader": "1.0.1",
+    "webpack-bundle-analyzer": "3.0.2",
+    "webpack-cli": "3.1.0",
+    "webpack-dev-server": "3.2.0",
+    "autoprefixer": "9.6.4",
+    "babel-plugin-syntax-dynamic-import": "6.18.0",
+    "path": "0.12.7",
+    "webpack": "4.14.0",
+    "module-replace-webpack-plugin": "0.0.12"
+  },
+  "dependencies": {
+    "@bem-react/classname": "^1.5.11",
+    "history": "4.7.2",
+    "mini-css-extract-plugin": "0.4.1",
+    "react": "16.12.0",
+    "react-docgen-typescript-loader": "3.7.1",
+    "react-dom": "16.13.1",
+    "react-redux": "5.0.7",
+    "react-router": "4.1.2",
+    "react-router-dom": "4.2.2",
+    "react-router-redux": "5.0.0-alpha.9",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0"
+  }
+}

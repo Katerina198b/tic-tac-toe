@@ -1,0 +1,8 @@
+.board {
+  flex-grow: 1;
+  border: 1px solid black;
+
+  &__row {
+    display: flex;
+  }
+}
