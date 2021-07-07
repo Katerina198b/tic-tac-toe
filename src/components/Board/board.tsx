@@ -21,66 +21,66 @@ interface Board {
 const b = cn('board');
 
 export const Board = ({
-   boardSize,
-   className = '',
-   rowSize,
-   currentSymbol,
-   setIsFirstGamerActive,
+	boardSize,
+	className = '',
+	rowSize,
+	currentSymbol,
+	setIsFirstGamerActive,
 }: Board): ReactElement | null => {
 
-    const [board, setBoard] = useState<Array<Array<'x' | 'o' | ' '>>>(new Array(boardSize).fill(new Array(boardSize).fill(' ')));
-    const [whoWin, setWhoWin] = useState<string>(' ');
+	const [board, setBoard] = useState<('x' | 'o' | ' ')[][]>(new Array(boardSize).fill(new Array(boardSize).fill(' ')));
+	const [whoWin, setWhoWin] = useState<string>(' ');
 
-    const onRepeat = useCallback(() => {
-        setBoard(new Array(boardSize).fill(new Array(boardSize).fill(' ')));
-        setWhoWin(' ');
-    }, []);
+	const onRepeat = useCallback(() => {
+		setBoard(new Array(boardSize).fill(new Array(boardSize).fill(' ')));
+		setWhoWin(' ');
+	}, []);
 
-    const onCeilClick = useCallback((key) => () => {
-        const [rowIndex, index] = key.split('_');
+	const onCeilClick = useCallback((key) => () => {
+		const [rowIndex, index] = key.split('_');
 
-        const newBoard = getNewBoard(board, rowIndex, index, currentSymbol);
+		const newBoard = getNewBoard(board, rowIndex, index, currentSymbol);
 
-        if (boardCheck(Number(rowIndex), Number(index), rowSize, newBoard)) {
-            setWhoWin(currentSymbol);
-        }
-        setBoard((board) => {
-            const newBoard = getNewBoard(board, rowIndex, index, currentSymbol);
-            return newBoard;
-        });
-        setIsFirstGamerActive(currentSymbol !== 'x');
+		if (boardCheck(Number(rowIndex), Number(index), rowSize, newBoard)) {
+			setWhoWin(currentSymbol);
+		}
+		setBoard((board) => {
+			const newBoard = getNewBoard(board, rowIndex, index, currentSymbol);
+			return newBoard;
+		});
+		setIsFirstGamerActive(currentSymbol !== 'x');
 
-    }, [board, rowSize, currentSymbol, setIsFirstGamerActive]);
+	}, [board, rowSize, currentSymbol, setIsFirstGamerActive]);
 
-    const ceils = useMemo(() => board.map((row, rowIndex) => {
-        return (
-            <div className={b('row')} key={rowIndex}>
-                {row.map((type, index) => {
-                    const key = `${rowIndex}_${index}`;
-                    return (
-                        <BoardCeil
-                            type={type}
-                            key={key}
-                            onClick={onCeilClick}
-                            id={key}
-                        />
-                    )
-                })}
-            </div>
-        )
-    }), [board, onCeilClick]);
+	const ceils = useMemo(() => board.map((row, rowIndex) => {
+		return (
+			<div className={b('row')} key={rowIndex}>
+				{row.map((type, index) => {
+					const key = `${rowIndex}_${index}`;
+					return (
+						<BoardCeil
+							type={type}
+							key={key}
+							onClick={onCeilClick}
+							id={key}
+						/>
+					);
+				})}
+			</div>
+		);
+	}), [board, onCeilClick]);
 
-    return (
+	return (
         <>
             <Modal isOpen={whoWin !== ' '}>
                 🎉 Победил {whoWin} 🎉
-                <Button onClick={onRepeat} type='success'>
+            	<Button onClick={onRepeat} type='success'>
                     Еще раз
-                </Button>
+            	</Button>
             </Modal>
             <div className={b()}>
-                {ceils}
+            	{ceils}
             </div>
         </>
-    );
+	);
 };

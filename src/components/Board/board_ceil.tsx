@@ -14,16 +14,16 @@ interface BoardCeil {
 const b = cn('board-ceil');
 
 export const BoardCeil = memo(({
-    type,
-    onClick,
-    id,
+	type,
+	onClick,
+	id,
 }: BoardCeil): ReactElement => {
-    
-    return (
-        <div
-            className={b({type})}
-            onClick={onClick(id)}
-        >
-        </div>
-    );
+
+	return (
+		<div
+			className={b({type})}
+			onClick={onClick(id)}
+		>
+		</div>
+	);
 });
