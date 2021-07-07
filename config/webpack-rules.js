@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
+const svgToMiniDataURI = require('mini-svg-data-uri');
 
 const babelRule = {
 	test: /\.(js|jsx|tsx|ts)$/,
@@ -73,19 +74,12 @@ const svgImagesRule = {
 		{
 			use: [
 				{
-					loader: '@svgr/webpack',
+					loader: 'url-loader',
 					options: {
-						svgoConfig: {
-							plugins: [{
-								removeTitle: false,
-								removeViewBox: false,
-								mergePaths: false,
-								convertShapeToPath: false
-							}]}
-					},
-				},
-				'url-loader'
-			]
+						generator: (content) => svgToMiniDataURI(content.toString()),
+					}
+				}
+			],
 		},
 		{
 			resourceQuery: /inline/, // foo.css?inline

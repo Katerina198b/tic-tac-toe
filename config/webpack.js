@@ -18,8 +18,7 @@ module.exports = {
 	// It never creates an actual file in the 'path' specified unlike the webpack CLI
 	output: {
 		path: STATIC_PATH,
-		filename: isDev ? '[name].js' : '[name].[hash].production.min.js',
-		chunkFilename: isDev ? undefined : 'chunk.[name].[hash].production.min.js',
+		filename: '[name].js',
 		publicPath: '/dist/',
 	},
 	mode: isDev ? 'development' : 'production',
@@ -62,21 +61,10 @@ module.exports = {
 			new OptimizeCSSAssetsPlugin({})
 
 		],
-		runtimeChunk: false,
-		splitChunks: isDev ? undefined : {
-			chunks: 'initial',
-		},
 	},
 	//A webpack plugin is a JavaScript object that has an apply method.
 	//This apply method is called by the webpack compiler, giving access to the entire compilation lifecycle.
-	plugins: !isDev ? [
-		// eslint-disable-next-line no-useless-escape
-		new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
-		new MiniCssExtractPlugin({
-			filename: '[name].[chunkhash].production.min.css',
-		}),
-		new BundleAnalyzerPlugin({analyzerPort: 8090}),
-	] : [
+	plugins: [
 		new MiniCssExtractPlugin({
 			ignoreOrder: false, // Enable to remove warnings about conflicting order
 		}),
