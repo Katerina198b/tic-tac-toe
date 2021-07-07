@@ -1,13 +1,11 @@
 {
-  "name": "react-template",
+  "name": "tic-tac-toe",
   "contributors": [
     {
       "name": "Zakharenkova Ekaterina",
       "email": "katerina198b@gmail.com"
     }
   ],
-  "homepage": "Users/katerina198b/Documents/projects/tic-tac-toe",
-  "start_url": ".",
   "sideEffects": false,
   "scripts": {
     "build": "export NODE_ENV=production && node ./node_modules/webpack/bin/webpack --config ./config/webpack.js",
